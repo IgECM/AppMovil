@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.animation.*
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -24,16 +26,24 @@ class MainActivity : ComponentActivity() {
                 ) {
                     var pantalla by remember { mutableStateOf("registro") }
 
-                    if (pantalla == "registro") {
-                        PantallaRegistro(
-                            viewModel = viewModel,
-                            onIrALista = { pantalla = "lista" }
-                        )
-                    } else {
-                        PantallaLista(
-                            viewModel = viewModel,
-                            onVolverRegistro = { pantalla = "registro" }
-                        )
+                    AnimatedContent(
+                        targetState = pantalla,
+                        transitionSpec = {
+                            fadeIn(animationSpec = tween(400)) togetherWith fadeOut(animationSpec = tween(400))
+                        },
+                        label = "transicion_pantallas"
+                    ) { pantallaActual ->
+                        if (pantallaActual == "registro") {
+                            PantallaRegistro(
+                                viewModel = viewModel,
+                                onIrALista = { pantalla = "lista" }
+                            )
+                        } else {
+                            PantallaLista(
+                                viewModel = viewModel,
+                                onVolverRegistro = { pantalla = "registro" }
+                            )
+                        }
                     }
                 }
             }
