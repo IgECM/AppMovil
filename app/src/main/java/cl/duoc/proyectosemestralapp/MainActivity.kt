@@ -18,24 +18,33 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ProyectoSemestralAppTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    var pantalla by remember { mutableStateOf("registro") }
 
-                    if (pantalla == "registro") {
+                var pantalla by remember { mutableStateOf("registro") }
+
+                when (pantalla) {
+                    "registro" -> {
                         PantallaRegistro(
                             viewModel = viewModel,
-                            onIrALista = { pantalla = "lista" }
+                            onIrALista = { pantalla = "lista" },
+                            onIrAMovimientos = { pantalla = "movimientos" }
                         )
-                    } else {
+                    }
+
+                    "lista" -> {
                         PantallaLista(
                             viewModel = viewModel,
                             onVolverRegistro = { pantalla = "registro" }
                         )
                     }
+
+                    "movimientos" -> {
+                        PantallaMovimientos(
+                            viewModel = viewModel,
+                            onVolver = { pantalla = "registro" }
+                        )
+                    }
                 }
+
             }
         }
     }

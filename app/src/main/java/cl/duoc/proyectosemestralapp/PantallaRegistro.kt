@@ -16,7 +16,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun PantallaRegistro(viewModel: ProductoViewModel, onIrALista: () -> Unit) {
+fun PantallaRegistro(viewModel: ProductoViewModel, onIrALista: () -> Unit,onIrAMovimientos: () -> Unit) {
     val context = LocalContext.current
     val scrollState = rememberScrollState()
 
@@ -179,6 +179,15 @@ fun PantallaRegistro(viewModel: ProductoViewModel, onIrALista: () -> Unit) {
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ver Productos Guardados")
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Button(
+            onClick = onIrAMovimientos,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Actualizar stock")
         }
     }
 }

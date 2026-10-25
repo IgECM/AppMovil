@@ -35,4 +35,39 @@ class ProductoViewModel(application: Application) : AndroidViewModel(application
             dao.insertarProducto(producto)
         }
     }
+
+    fun registrarMovimiento(
+        codigo: String,
+        cantidad: Int,
+        esEntrada: Boolean
+    ) {
+        viewModelScope.launch {
+            // Buscar el producto por su código
+            val producto = listaProductos.value.find {
+                it.codigo == codigo
+            } ?: return@launch
+
+            // Validar la cantidad
+            if (cantidad <= 0) {
+                return@launch
+            }
+
+            // Calcular el stock actualizado
+            val nuevoStock = if (esEntrada) {
+                producto.stock + cantidad
+            } else {
+                producto.stock - cantidad
+            }
+
+            // Evitar que el stock quede negativo
+            if (nuevoStock < 0) {
+                return@launch
+            }
+
+            // Actualizar el producto en Room
+            dao.actualizarProducto(
+                producto.copy(stock = nuevoStock)
+            )
+        }
+    }
 }
