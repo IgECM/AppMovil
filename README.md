@@ -20,3 +20,6 @@ Gestión de inventario, Hecha para control de existencias, registro de productos
 2. Abrir en Android Studio.
 3. Sincronizar las dependencias con Gradle.
 4. Correr la aplicación (Emulador o Telefono fisico de Android) con la configuración adecuada.
+
+## Trello
+https://trello.com/invite/b/6ad0e58deaf6414da2d7214f/ATTIa7cf53fa540badbf7d1b127e2277f860B3F26DB3/trabajo-desarollo-movil
