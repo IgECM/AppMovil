@@ -39,7 +39,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4" //
+        kotlinCompilerExtensionVersion = "1.5.4"
     }
 }
 
@@ -59,7 +59,7 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
 
-    // Multidex para evitar límites de métodos
+    // Multidex
     implementation("androidx.multidex:multidex:2.0.1")
 
     // Pruebas
