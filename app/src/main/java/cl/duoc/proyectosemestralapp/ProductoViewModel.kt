@@ -41,7 +41,7 @@ class ProductoViewModel(application: Application) : AndroidViewModel(application
         cantidad: Int,
         esEntrada: Boolean
     ) {
-        viewModelScope.launch {
+        viewModelScope.launch  {
             // Buscar el producto por su código
             val producto = listaProductos.value.find {
                 it.codigo == codigo

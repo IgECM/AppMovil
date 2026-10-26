@@ -16,7 +16,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun PantallaRegistro(viewModel: ProductoViewModel, onIrALista: () -> Unit,onIrAMovimientos: () -> Unit) {
+fun PantallaRegistro(viewModel: ProductoViewModel, onIrALista: () -> Unit, onIrAMovimientos: () -> Unit) {
     val context = LocalContext.current
     val scrollState = rememberScrollState()
 

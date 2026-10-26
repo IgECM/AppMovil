@@ -11,6 +11,7 @@ Gestión de inventario, Hecha para control de existencias, registro de productos
 ## Funcionalidades Implementadas
 - **Guardar productos**: Un formulario para anotar los productos, viene con alertas, por si dejas un campo vacío o malo.
 - **Ver productos guardados**: Lista con los productos guardados, y una alerta de "REPONER" en color rojo cuando queda poco stock.
+- **Actualizar stock**: Pantalla en el que se puede añadir o quitar stock de un producto seleccionado.
 - **Base de datos local**: Todo se guarda en el teléfono usando Room para no perder los datos al cerrar la app.
 - **Funciones del teléfono**: Se puede compartir la lista de productos por mensaje o mail y el teléfono vibra al guardar un producto.
 - **Animaciones**: Cambios suaves de pantalla cuando pasas del registro a la lista.
