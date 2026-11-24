@@ -53,8 +53,6 @@ fun ProyectoSemestralAppTheme(
         }
     }
 
-
-
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,

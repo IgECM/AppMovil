@@ -1,0 +1,7 @@
+.git
+.idea
+**/target
+**/*.iml
+**/datos
+**/*.mv.db
+**/*.trace.db

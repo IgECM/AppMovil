@@ -1,0 +1,40 @@
+GET http://localhost:8081/api/productos
+
+###
+POST http://localhost:8081/api/productos
+Content-Type: application/json
+
+{
+  "codigo": "K-001",
+  "nombre": "Polera Kaiju",
+  "descripcion": "Polera de ejemplo",
+  "categoria": "Ropa",
+  "precio": 15000,
+  "stock": 10,
+  "stockMinimo": 3
+}
+
+###
+POST http://localhost:8082/api/movimientos
+Content-Type: application/json
+
+{
+  "productoId": 1,
+  "tipo": "ENTRADA",
+  "cantidad": 5
+}
+
+###
+POST http://localhost:8083/api/ventas
+Content-Type: application/json
+
+{
+  "productoId": 1,
+  "cantidad": 2
+}
+
+###
+GET http://localhost:8082/api/movimientos
+
+###
+GET http://localhost:8083/api/ventas

@@ -1,15 +1,38 @@
+# Android Studio / Gradle
+.gradle/
+**/.gradle/
+.idea/
+**/.idea/
+**/build/
+**/.kotlin/
+**/.cxx/
+**/.externalNativeBuild/
+**/captures/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
 local.properties
+**/local.properties
+
+# IntelliJ / Maven / H2
+**/target/
+**/*.mv.db
+**/*.trace.db
+**/datos/
+*.log
+
+# Archivos privados de firma y configuraciones locales
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.env
+.env
+.env.*
+!.env.example
+
+# Paquetes compilados
+*.apk
+*.aab
+
+# Sistema
+.DS_Store
+Thumbs.db

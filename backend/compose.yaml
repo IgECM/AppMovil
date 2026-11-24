@@ -1,0 +1,43 @@
+services:
+  productos:
+    image: kaiju-backend:local
+    command: ["java", "-jar", "/app/ms-productos.jar"]
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:h2:file:/app/datos/productos;DB_CLOSE_ON_EXIT=FALSE"
+    volumes:
+      - kaiju-productos:/app/datos
+
+  movimientos:
+    image: kaiju-backend:local
+    command: ["java", "-jar", "/app/ms-movimientos.jar"]
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:h2:file:/app/datos/movimientos;DB_CLOSE_ON_EXIT=FALSE"
+      PRODUCTOS_URL: "http://productos:8081"
+    depends_on:
+      - productos
+    volumes:
+      - kaiju-movimientos:/app/datos
+
+  ventas:
+    image: kaiju-backend:local
+    command: ["java", "-jar", "/app/ms-ventas.jar"]
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:h2:file:/app/datos/ventas;DB_CLOSE_ON_EXIT=FALSE"
+      PRODUCTOS_URL: "http://productos:8081"
+      MOVIMIENTOS_URL: "http://movimientos:8082"
+    depends_on:
+      - productos
+      - movimientos
+    volumes:
+      - kaiju-ventas:/app/datos
+
+volumes:
+  kaiju-productos:
+  kaiju-movimientos:
+  kaiju-ventas:
