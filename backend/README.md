@@ -48,3 +48,7 @@ El teléfono necesita poder comunicarse con el PC en los puertos 8081, 8082 y 80
 Los datos se almacenan en H2. Los archivos de base de datos generados al ejecutar los servicios no deben subirse a GitHub.
 
 Este proyecto se utiliza como parte de una evaluación académica y no está preparado para exponer sus servicios directamente a Internet.
+
+## Detección automática de la red
+
+El servidor de productos responde a la búsqueda automática de Android por UDP (puerto 8989) y al endpoint `GET /api/identidad` en 8081. No necesita configurar una IP fija: los tres servicios escuchan en todas las interfaces. El PC y el teléfono deben estar conectados a la misma red local, por ejemplo mediante el hotspot del Samsung. El firewall de Windows debe permitir los puertos 8081, 8082 y 8083; UDP 8989 acelera el descubrimiento, pero no es indispensable cuando funciona la búsqueda HTTP.

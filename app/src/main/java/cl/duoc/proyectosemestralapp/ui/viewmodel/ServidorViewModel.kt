@@ -129,7 +129,7 @@ class ServidorViewModel(
                 else -> "Error del servidor: ${excepcion.code()}"
             }
             is SocketTimeoutException -> "Tiempo de espera agotado. Comprueba la conexión e inténtalo de nuevo."
-            is IOException -> "Sin conexión. Revisa el Wi-Fi y Spring Boot."
+            is IOException -> "Sin conexión. Comprueba que el PC esté en la misma red y Spring Boot esté encendido."
             else -> "No se pudo completar la operación"
         }
     }
